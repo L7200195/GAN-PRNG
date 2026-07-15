@@ -44,7 +44,7 @@ jupyter notebook
 然后打开 `train.ipynb`，按照以下步骤操作：
 
 1. **配置参数** - 在第二个单元格中修改训练参数：
-   - `MODEL_TYPE`: 模型类型 (0=基础模型，1=双生成器模型)
+   - `MODEL_TYPE`: 模型类型 (1=双生成器模型)
    - `EPOCHS`: 训练轮数
    - `BATCH_SIZE`: 批大小
    - `LR`: 学习率
@@ -131,12 +131,12 @@ jupyter notebook
 
 ```python
 # config.py
-MODEL_TYPE = 0          # 0=基础模型，1=双生成器模型
-SEQ_LEN = 256           # 序列长度
-Z_DIM = 32              # 噪声维度
-BATCH_SIZE = 128        # 批大小
-LR = 0.0002             # 学习率
-EPOCHS = 50000          # 训练轮数
+MODEL_TYPE = 1          # 0=基础模型，1=双生成器模型
+SEQ_LEN = 512           # 序列长度
+Z_DIM = 64              # 噪声维度
+BATCH_SIZE = 512        # 批大小
+LR = 0.0001             # 学习率
+EPOCHS = 200000          # 训练轮数
 SAVE_INTERVAL = 1000    # 保存间隔
 EVAL_INTERVAL = 1000    # 评估间隔
 ```
@@ -146,9 +146,9 @@ EVAL_INTERVAL = 1000    # 评估间隔
 ```python
 # config.py
 CHECKPOINT_PATH = ''    # 检查点文件路径
-TOTAL_BITS = 1048576    # 生成的总比特数 (1MB)
-BATCH_SIZE = 128        # 批大小
-BIT_MODE = 0            # 0=传统模式，1=比特展开模式
+TOTAL_BITS = 1000000*1000    # 生成的总比特数 (1MB)
+BATCH_SIZE = 512        # 批大小
+BIT_MODE = 1            # 0=传统模式，1=比特展开模式
 ```
 
 ## 随机性指标
